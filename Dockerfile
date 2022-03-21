@@ -3,12 +3,7 @@ LABEL maintainer="michaelpellegrini@protonmail.com"
 
 WORKDIR /app
 
-RUN apt-get update; apt-get upgrade -y; apt-get install netcat -y; apt-get clean -y; apt-get autoremove -y;
+RUN apt-get update; apt-get install netcat -y;
+COPY init.sh
 
-
-
-VOLUME [ "/app/config" ]
-VOLUME [ "/etc/ssl" ]
-VOLUME [ "/app/config/logs" ]
-
-ENTRYPOINT [ "dotnet", "/app/DnsServerApp.dll" ]
+ENTRYPOINT [ "./app/init.sh" ]

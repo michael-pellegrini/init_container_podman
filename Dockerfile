@@ -3,7 +3,8 @@ LABEL maintainer="michaelpellegrini@protonmail.com"
 
 WORKDIR /app
 
-RUN apt-get update; apt-get install netcat -y;
 COPY ./init.sh /app
+RUN apt-get update; apt-get install netcat -y;
+RUN chmod +x /app/init.sh
 
 ENTRYPOINT [ "./app/init.sh" ]

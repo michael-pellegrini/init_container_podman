@@ -4,7 +4,7 @@ LABEL maintainer="michaelpellegrini@protonmail.com"
 WORKDIR /app
 
 COPY ./init.sh /app
-RUN apt-get update; apt-get install netcat -y;
+RUN apt-get update; apt-get install postgresql-client -y;
 RUN chmod +x /app/init.sh
 
 ENTRYPOINT [ "/app/init.sh" ]
